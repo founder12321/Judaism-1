@@ -1,23 +1,21 @@
 # Session Disclaimer
 
-> **DRAFT — NOT LEGAL ADVICE.** Have a licensed attorney review before use.
-
 ## Short Version (Booking Flow)
 
-**Judaism 1 provides pastoral guidance and Torah consultation — not psychotherapy or medical care.**
+**Judaism 1 provides Jewish pastoral guidance, learning, and spiritual support. It is not therapy, medical care, legal advice, emergency counseling, or crisis intervention.**
 
 By booking, you acknowledge that:
 
-- Your guide is an independent pastoral consultant, not a licensed therapist
+- Your guide is an independent pastoral provider, not a licensed therapist unless explicitly stated in their profile
 - Sessions are for spiritual guidance, Jewish learning, and life counsel from a Jewish perspective
-- This is **not** a substitute for professional mental health treatment, medical advice, or emergency services
-- If you are in crisis or considering self-harm, call or text **988** (Suicide & Crisis Lifeline) or dial **911**
+- This is **not** a substitute for professional mental health treatment, medical advice, legal advice, or emergency services
+- If you are in immediate danger or experiencing a mental health emergency, contact local emergency services or a crisis hotline. Judaism 1 is not an emergency service.
 
-## Long Version (Provider Profiles & Session Pages)
+## Long Version
 
 ### Nature of Services
 
-Judaism 1 connects you with vetted rabbis, Torah scholars, and pastoral counselors for **one-on-one guidance**. Services may include:
+Judaism 1 connects you with vetted rabbis, Jewish scholars, chaplains, and educators for **one-on-one guidance**. Services may include:
 
 - Life guidance from a Jewish perspective (relationships, parenting, career, grief)
 - Explanation of Jewish concepts, texts, and practices
@@ -28,23 +26,24 @@ Judaism 1 connects you with vetted rabbis, Torah scholars, and pastoral counselo
 
 Sessions through Judaism 1 are **not**:
 
-- Psychotherapy, counseling, or mental health treatment
+- Psychotherapy, clinical counseling, or mental health treatment
 - Medical advice or diagnosis
+- Legal advice
 - Emergency or crisis intervention
 - Binding halachic rulings (psak din) unless your guide explicitly offers this and you understand the context
 
 ### Your Guide's Role
 
-Providers on Judaism 1 are **independent contractors**. They set their own rates and availability. Judaism 1 vets credentials but does not supervise session content. Your guide may refer you to a licensed therapist, medical professional, or local rabbi when appropriate.
+Guides on Judaism 1 are **independent contractors**. They set their own rates and availability. Judaism 1 vets credentials but does not supervise session content. Your guide may refer you to a licensed therapist, medical professional, or local rabbi when appropriate.
 
-### Confidentiality
+### Confidentiality and Recording
 
-Providers agree to maintain session confidentiality except where disclosure is required by law or necessary to prevent harm. Platform intake data is stored securely and is **not** shared with advertising partners.
+Sessions are private between you and your guide, subject to legal and safety limits. **Judaism 1 does not record sessions.** Providers agree to maintain confidentiality except where disclosure is required by law or necessary to prevent harm.
 
 ### Limitation of Liability
 
-To the fullest extent permitted by law, Judaism 1 is a marketplace platform and is not liable for guidance provided by independent providers. See our [Terms of Service](/legal/terms) for full details.
+To the fullest extent permitted by law, Judaism 1 is a marketplace platform and is not liable for guidance provided by independent providers. See our Terms of Service at /legal/terms for full details.
 
 ---
 
-*If you are experiencing a mental health emergency, contact 988 or 911 immediately. Do not use this platform for crisis support.*
+*If you are in immediate danger or may harm yourself or someone else, contact local emergency services now. If you need mental health support, contact a licensed mental health professional or crisis hotline.*

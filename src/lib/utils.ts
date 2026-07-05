@@ -121,3 +121,18 @@ export function formatInTimezone(date: Date, timezone: string): string {
     timeZoneName: "short",
   }).format(date);
 }
+
+const DAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
+
+export function summarizeAvailability(
+  slots: { dayOfWeek: number; startTime: string }[],
+): string {
+  if (!slots.length) return "Flexible scheduling";
+  const sorted = [...slots].sort((a, b) => a.dayOfWeek - b.dayOfWeek);
+  const days = [...new Set(sorted.map((s) => DAY_LABELS[s.dayOfWeek]))];
+  const firstTime = formatTime12Hour(sorted[0].startTime);
+  if (days.length <= 3) {
+    return `${days.join(", ")} from ${firstTime}`;
+  }
+  return `${days.slice(0, 3).join(", ")} + more`;
+}

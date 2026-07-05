@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
-import { HEBREW_TAGLINE, TAGLINE } from "@/lib/constants";
+import { TAGLINE } from "@/lib/constants";
 
 const navLinks = [
-  { href: "/scholars", label: "Find a Guide" },
-  { href: "/about", label: "About" },
-  { href: "/learnings", label: "Topics" },
+  { href: "/find", label: "Find a Guide" },
+  { href: "/scholars", label: "Browse Guides" },
+  { href: "/topics", label: "Topics" },
+  { href: "/faq", label: "FAQ" },
   { href: "/apply", label: "Become a Guide" },
-  { href: "/beta", label: "Beta" },
 ];
 
 export function Header() {
@@ -27,13 +27,13 @@ export function Header() {
           <span className="text-xs text-stone-500">{TAGLINE}</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-5 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`text-sm transition ${
-                pathname === link.href
+                pathname === link.href || pathname.startsWith(`${link.href}/`)
                   ? "font-medium text-amber-800"
                   : "text-stone-600 hover:text-stone-900"
               }`}
@@ -77,24 +77,18 @@ export function Header() {
             </>
           ) : (
             <>
-              <Link href="/signup" className="text-sm text-stone-600 hover:text-stone-900">
-                Sign up
-              </Link>
-              <Link href="/login" className="text-sm text-stone-600 hover:text-stone-900">
+              <Link href="/login" className="hidden text-sm text-stone-600 hover:text-stone-900 sm:inline">
                 Sign in
               </Link>
               <Link
-                href="/scholars"
+                href="/find"
                 className="rounded-full bg-amber-800 px-4 py-2 text-sm font-medium text-white hover:bg-amber-900"
               >
-                Find a Guide
+                Find a guide
               </Link>
             </>
           )}
         </div>
-      </div>
-      <div className="border-t border-stone-100 bg-stone-50 px-4 py-1 text-center text-xs text-stone-500">
-        {HEBREW_TAGLINE} · Avot 1:6
       </div>
     </header>
   );

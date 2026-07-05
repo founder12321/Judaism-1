@@ -42,7 +42,7 @@ function LoginForm() {
             type="email"
             required
             className="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2"
-            placeholder="demo@judaism1.com"
+            placeholder="you@email.com"
           />
         </label>
         <label className="block text-sm">
@@ -52,7 +52,7 @@ function LoginForm() {
             type="password"
             required
             className="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2"
-            placeholder="demo1234"
+            placeholder="Your password"
           />
         </label>
         {error && <p className="text-sm text-red-600">{error}</p>}
@@ -63,8 +63,11 @@ function LoginForm() {
           Sign in
         </button>
       </form>
-      <p className="mt-4 text-center text-xs text-stone-500">
-        Demo: demo@judaism1.com / demo1234 · Admin: admin@judaism1.com / demo1234
+      <p className="mt-4 text-center text-sm text-stone-500">
+        New here?{" "}
+        <Link href="/signup" className="font-medium text-amber-800 underline">
+          Create an account
+        </Link>
       </p>
     </Card>
   );

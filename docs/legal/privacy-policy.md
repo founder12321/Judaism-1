@@ -1,8 +1,6 @@
 # Privacy Policy — Judaism 1
 
-> **DRAFT — NOT LEGAL ADVICE.** Have a licensed attorney review before publication.
-
-**Last updated:** [DATE]
+**Last updated:** July 5, 2026
 
 ## Overview
 
@@ -14,10 +12,8 @@ Judaism 1 ("we," "us") respects your privacy. This policy describes what we coll
 - Name, email address, password (hashed)
 - Timezone preference
 
-### Booking & Intake Information
-- Session category and free-text description of your needs
-- Denomination preference
-- Prior experience with rabbis
+### Booking and Intake Information
+- Session category and optional description of your needs
 - Optional notes for your Guide
 
 **We treat intake data as sensitive.** We do not share it with advertising partners or social media pixels.
@@ -27,7 +23,7 @@ Judaism 1 ("we," "us") respects your privacy. This policy describes what we coll
 
 ### Usage Data
 - Pages visited, device type, approximate location (from IP)
-- First-party analytics only in MVP (no third-party ad tracking on intake flows)
+- First-party analytics only (no third-party ad tracking on intake flows)
 
 ## How We Use Information
 
@@ -41,7 +37,7 @@ Judaism 1 ("we," "us") respects your privacy. This policy describes what we coll
 ## What We Do Not Do
 
 - **We do not sell your personal information**
-- **We do not share intake or session topic data with Facebook, Google Ads, or similar for targeting**
+- **We do not share intake or session topic data with advertising platforms for targeting**
 - We do not use your data to train third-party AI models
 
 ## Guide Access
@@ -50,15 +46,15 @@ Guides receive intake information for sessions they are booked for. Guides agree
 
 ## Data Retention
 
-[ATTORNEY: define retention periods for bookings, intake, and account data]
+We retain account information while your account is active and for a reasonable period afterward. Booking and payment records are retained for at least seven years where required for tax, fraud prevention, and legal compliance. You may request deletion of your account subject to legal retention requirements.
 
 ## Your Rights
 
-Depending on your location, you may have rights to access, correct, delete, or export your data. Contact [EMAIL].
+Depending on your location, you may have rights to access, correct, delete, or export your data. Contact support@judaism1.com.
 
 ## Security
 
-We use encryption in transit (HTTPS), hashed passwords, and access controls. No system is 100% secure.
+We use encryption in transit (HTTPS), hashed passwords, and access controls. No system is completely secure.
 
 ## Children
 
@@ -70,5 +66,5 @@ We will notify users of material changes via email or Platform notice.
 
 ## Contact
 
-[COMPANY LEGAL NAME]  
-[EMAIL]
+Judaism 1  
+support@judaism1.com

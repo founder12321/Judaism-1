@@ -1,24 +1,8 @@
 import { ReactNode } from "react";
+import { PastoralBoundaryNotice } from "@/components/PastoralBoundaryNotice";
 
 export function DisclaimerBanner({ compact = false }: { compact?: boolean }) {
-  if (compact) {
-    return (
-      <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950">
-        Judaism 1 is pastoral guidance, not therapy. In crisis, call or text <strong>988</strong>.
-      </p>
-    );
-  }
-
-  return (
-    <div className="rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-950">
-      <p className="font-medium">Important: Pastoral guidance, not therapy</p>
-      <p className="mt-2">
-        Sessions on Judaism 1 are for spiritual guidance and Jewish learning.
-        They are not psychotherapy, medical advice, or crisis support. If you
-        are in crisis, call or text <strong>988</strong> or dial <strong>911</strong>.
-      </p>
-    </div>
-  );
+  return <PastoralBoundaryNotice compact={compact} />;
 }
 
 export function PageShell({

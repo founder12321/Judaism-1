@@ -5,6 +5,7 @@ import { PageShell, Card } from "@/components/ui";
 import { ProviderMeetingLinkForm } from "@/components/ProviderMeetingLinkForm";
 import { ProviderStripeConnect } from "@/components/ProviderStripeConnect";
 import { detectMeetingLinkType, meetingLinkLabel } from "@/lib/meeting-links";
+import { GUIDE_PAYOUT_PERCENT } from "@/lib/constants";
 import { formatCents, calculateProviderPayout } from "@/lib/utils";
 import { format } from "date-fns";
 
@@ -47,7 +48,7 @@ export default async function ProviderDashboardPage() {
         </Card>
         <Card>
           <p className="text-2xl font-semibold">{formatCents(earnings)}</p>
-          <p className="text-sm text-stone-500">Est. earnings (82% split)</p>
+          <p className="text-sm text-stone-500">Est. earnings ({GUIDE_PAYOUT_PERCENT}% split)</p>
         </Card>
         <Card>
           <p className="text-2xl font-semibold">{provider.status}</p>

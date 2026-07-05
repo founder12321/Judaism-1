@@ -2,8 +2,11 @@
 
 import { useMemo, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { BOOKING_CATEGORIES } from "@/lib/constants";
-import { DisclaimerBanner } from "@/components/ui";
+import Link from "next/link";
+import { BOOKING_CATEGORIES, EMERGENCY_NOTICE } from "@/lib/constants";
+import { PastoralBoundaryNotice } from "@/components/PastoralBoundaryNotice";
+import { CrisisSafetyMessage } from "@/components/CrisisSafetyMessage";
+import { TrustSection } from "@/components/TrustSection";
 import {
   combineDateAndTime,
   formatCents,
@@ -38,6 +41,7 @@ export function BookingForm({
   const [userTimezone, setUserTimezone] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("09:00");
+  const [timeSensitive, setTimeSensitive] = useState(false);
 
   const timeSlots = useMemo(() => generateQuarterHourTimes(), []);
   const singleSessionType = sessionTypes.length === 1;
@@ -65,12 +69,18 @@ export function BookingForm({
 
     const form = new FormData(e.currentTarget);
     const scheduledAt = combineDateAndTime(selectedDate, selectedTime).toISOString();
+    const topicRaw = String(form.get("topic") ?? "").trim();
+    const notes = timeSensitive
+      ? `[Time-sensitive] ${topicRaw}`.trim()
+      : topicRaw || undefined;
 
     const payload = {
       ...Object.fromEntries(form.entries()),
       scheduledAt,
       userTimezone: userTimezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone,
       category: BOOKING_CATEGORIES[0],
+      topic: topicRaw || undefined,
+      notes,
     };
 
     const res = await fetch("/api/bookings", {
@@ -109,26 +119,14 @@ export function BookingForm({
   }
 
   if (crisisBlocked) {
-    return (
-      <div className="rounded-xl border border-red-200 bg-red-50 p-6 text-red-950">
-        <h2 className="font-medium">We&apos;re concerned about your safety</h2>
-        <p className="mt-2 text-sm">
-          Judaism 1 provides pastoral guidance, not emergency support. If you or someone you know is in crisis:
-        </p>
-        <ul className="mt-3 list-disc space-y-1 pl-5 text-sm">
-          <li>Call or text <strong>988</strong> (Suicide & Crisis Lifeline)</li>
-          <li>Text HOME to <strong>741741</strong> (Crisis Text Line)</li>
-          <li>Call <strong>911</strong> if you are in immediate danger</li>
-        </ul>
-      </div>
-    );
+    return <CrisisSafetyMessage />;
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <input type="hidden" name="providerSlug" value={providerSlug} />
 
-      <DisclaimerBanner compact />
+      <PastoralBoundaryNotice compact />
 
       {singleSessionType ? (
         <input type="hidden" name="sessionTypeId" value={sessionTypes[0].id} />
@@ -151,10 +149,19 @@ export function BookingForm({
       )}
 
       {singleSessionType && (
-        <p className="text-sm text-stone-600">
-          {sessionTypes[0].name} · {sessionTypes[0].durationMin} min ·{" "}
-          {formatCents(sessionTypes[0].priceCents)}
-        </p>
+        <div className="rounded-lg border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-600">
+          <p className="font-medium text-stone-900">
+            {sessionTypes[0].name} · {sessionTypes[0].durationMin} min ·{" "}
+            {formatCents(sessionTypes[0].priceCents)}
+          </p>
+          <p className="mt-1 text-xs text-stone-500">
+            Includes a private video session. Your guide&apos;s meeting link appears on your
+            dashboard after payment.{" "}
+            <Link href="/legal/terms" className="underline">
+              Cancellation policy
+            </Link>
+          </p>
+        </div>
       )}
 
       <div className="rounded-xl border border-stone-200 bg-stone-50 p-4 space-y-4">
@@ -216,34 +223,47 @@ export function BookingForm({
 
       <label className="block text-sm">
         <span className="font-medium text-stone-700">
-          What would you like to discuss? <span className="font-normal text-stone-500">(optional)</span>
+          Anything you want your guide to know before the session?{" "}
+          <span className="font-normal text-stone-500">(optional)</span>
         </span>
-        <p className="mt-1 text-xs text-stone-500">
-          Share as much or as little as you like. You can also save it for the session itself.
-        </p>
         <textarea
           name="topic"
           rows={3}
-          placeholder="e.g. guidance on engagement, starting to keep Shabbat, a question about grief..."
+          placeholder="Share as much or as little as you like."
           className="mt-2 w-full rounded-lg border border-stone-300 px-3 py-2"
         />
       </label>
 
       <label className="flex items-start gap-3 text-sm">
+        <input
+          type="checkbox"
+          checked={timeSensitive}
+          onChange={(e) => setTimeSensitive(e.target.checked)}
+          className="mt-1 rounded border-stone-300"
+        />
+        <span className="text-stone-700">Is this urgent or time-sensitive? (optional)</span>
+      </label>
+
+      <TrustSection />
+
+      <label className="flex items-start gap-3 text-sm">
         <input type="checkbox" name="disclaimerAccepted" value="true" required className="mt-1" />
         <span>
-          I understand this is pastoral guidance, not psychotherapy or emergency care. I will contact 988 or 911 if I am in crisis.
+          I understand Judaism 1 provides pastoral guidance, not psychotherapy, medical care, or
+          emergency services. {EMERGENCY_NOTICE}
         </span>
       </label>
 
       {error && <p className="text-sm text-red-600">{error}</p>}
+
+      <p className="text-xs text-stone-500">{EMERGENCY_NOTICE}</p>
 
       <button
         type="submit"
         disabled={loading}
         className="w-full rounded-full bg-amber-800 py-3 text-sm font-medium text-white hover:bg-amber-900 disabled:opacity-50"
       >
-        {loading ? "Processing..." : `Continue to payment`}
+        {loading ? "Processing..." : "Continue to payment"}
       </button>
     </form>
   );

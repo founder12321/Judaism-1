@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { GUIDE_PAYOUT_PERCENT } from "@/lib/constants";
 
 export function ProviderStripeConnect() {
   const [status, setStatus] = useState<{
@@ -32,12 +33,12 @@ export function ProviderStripeConnect() {
       <p className="font-medium text-stone-900">Stripe payouts</p>
       {status.connected ? (
         <p className="mt-2 text-stone-600">
-          Your Stripe account is connected. You&apos;ll receive 82% of each session fee automatically.
+          Your Stripe account is connected. You&apos;ll receive {GUIDE_PAYOUT_PERCENT}% of each session fee automatically.
         </p>
       ) : (
         <>
           <p className="mt-2 text-stone-600">
-            Connect Stripe to receive payouts (82% of session fees). Required before your first paid booking.
+            Connect Stripe to receive payouts ({GUIDE_PAYOUT_PERCENT}% of session fees). Required before your first paid booking.
           </p>
           <button
             onClick={startOnboarding}
